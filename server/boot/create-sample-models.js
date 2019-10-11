@@ -20,7 +20,7 @@ module.exports = function (app) {
 
   function createReviewers(cb) {
 
-    mongoDb.automigrate('Reviewer', function (err) {
+    mongoDb.autocomplete('Reviewer', function (err) {
 
       if (err) return cb(err);
 
@@ -53,7 +53,7 @@ module.exports = function (app) {
 
   function createcoffeShops(cb) {
 
-    mongoDb.automigrate('coffeShop', function (err) {
+    mongoDb.autocomplete('coffeShop', function (err) {
 
       var coffeshop = app.models.coffeShop;
       coffeshop.create([{
@@ -76,7 +76,7 @@ module.exports = function (app) {
 
   function createReviews(reviewers, cofees, cb) {
 
-    mongoDb.automigrate('Review', function (err) {
+    mongoDb.autocomplete('Review', function (err) {
 
       if (err) return cb(err);
 

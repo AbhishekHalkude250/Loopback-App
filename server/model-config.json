@@ -36,7 +36,7 @@
     "public": false
   },
   "coffeShop": {
-    "dataSource": "db",
+    "dataSource": "mongoDS2",
     "public": true
   },
   "Review": {

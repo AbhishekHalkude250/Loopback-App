@@ -55,6 +55,43 @@ module.exports = function (coffeShop) {
 
   }
 
+
+  coffeShop.getDataBasedOnCityName = function (cityname, cb) {
+
+    console.log(cityname);
+
+    coffeShop.find({
+      where: {
+        city: cityname
+      }
+    }, function (err, data) {
+
+      if (err) throw err;
+      console.log(data);
+      cb(null, data);
+    });
+  };
+
+  coffeShop.remoteMethod(
+
+    'getDataBasedOnCityName', {
+      http: {
+        path: '/getDataBasedOnCityName',
+        verb: 'get'
+      },
+      accepts: {
+        arg: 'city',
+        type: 'string'
+      },
+      returns: {
+        arg: 'result',
+        type: 'string'
+      }
+
+    }
+  )
+
+
   coffeShop.remoteMethod(
     'getAll', {
   http: {  path:'/getAll', verb: 'get' },
